@@ -43,6 +43,34 @@
 	
 </head>
 <body id="bg">
+<!-- SCRIPT DE DEBUG -->
+<script>
+console.log('=== KI PIZZA DEBUG LOG ===');
+console.log('Versao: 1.0.0');
+console.log('Data/Hora:', new Date().toLocaleString('pt-BR'));
+console.log('URL:', window.location.href);
+console.log('Pathname:', window.location.pathname);
+console.log('User Agent:', navigator.userAgent);
+console.log('Viewport:', window.innerWidth + 'x' + window.innerHeight);
+console.log('========================');
+
+// Detectar erros de carregamento
+window.addEventListener('error', function(e) {
+    console.error('ERRO DE CARREGAMENTO:', e.target.tagName, e.target.src || e.target.href);
+}, true);
+
+// Log quando DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('✓ DOM carregado com sucesso!');
+});
+
+// Log quando tudo estiver carregado
+window.addEventListener('load', function() {
+    console.log('✓ Pagina completamente carregada!');
+    console.log('Total de elementos:', document.querySelectorAll('*').length);
+});
+</script>
+
 <div class="page-wraper font-barlow">
 <div id="loading-area" class="pizza-loading"></div>
 	<!-- cabecalho -->
@@ -1104,7 +1132,17 @@
     <button class="scroltop style3 radius text-white" type="button"><i class="fa fa-arrow-up"></i></button>
 </div>
 <!-- ARQUIVOS JAVASCRIPT ========================================= -->
-<script src="js/jquery.min.js"></script><!-- JS JQUERY MIN -->
+<!-- jQuery com fallback para CDN -->
+<script src="js/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.6.0.min.js"><\/script>')</script>
+<script>
+// Log de debug jQuery
+if (typeof jQuery !== 'undefined') {
+    console.log('✓ jQuery carregado: v' + jQuery.fn.jquery);
+} else {
+    console.error('✗ ERRO: jQuery não carregou!');
+}
+</script>
 <script src="plugins/bootstrap/js/popper.min.js"></script><!-- JS BOOTSTRAP MIN -->
 <script src="plugins/bootstrap/js/bootstrap.min.js"></script><!-- JS BOOTSTRAP MIN -->
 <script src="plugins/counter/waypoints-min.js"></script><!-- JS WAYPOINTS -->
@@ -1116,33 +1154,48 @@
 <script src="js/dz.ajax.js"></script><!-- JS DE CONTATO  -->
 
  <!-- ARQUIVOS JS DO REVOLUTION -->
-<script src="plugins/revolution/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
-<!-- Extensoes do Revolution 5.0 (carregar apenas em arquivo local; pode remover no servidor para carga sob demanda) -->
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="plugins/revolution/revolution/js/extensions/revolution.extension.video.min.js"></script>
-<script src='plugins/revolution/revolution-addons/particles/js/revolution.addon.particles.min.js?ver=1.0.3'></script>
-<script  src="js/rev.slider.js"></script>
+<script src="plugins/revolution/revolution/js/jquery.themepunch.tools.min.js" onerror="console.error('Erro ao carregar: themepunch.tools')"></script>
+<script src="plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js" onerror="console.error('Erro ao carregar: themepunch.revolution')"></script>
+<!-- Extensoes do Revolution removidas para evitar erros de carregamento -->
+<!-- As extensoes serao carregadas sob demanda apenas se necessario -->
+<script src="js/rev.slider.js" onerror="console.warn('Slider.js nao carregou - usando fallback')"></script>
 <script src="js/custom.js"></script>
 <script>
+// Versao segura com fallbacks
 jQuery(document).ready(function() {
 	'use strict';
-	dz_rev_slider_1();
+	console.log('✓ Document ready');
 	
-	//setCookie('themeFullColor_value','css/skin/skin-1',1);
-	//setCookie('logo_value','images/logo.png',1);
-	setCookie('header','header_v2',1);
-	setCookie('footer','footer_v2',1);
+	// Remover loading screen apos 2 segundos mesmo se houver erros
+	setTimeout(function() {
+		jQuery('#loading-area').fadeOut('slow');
+		console.log('Loading screen removido');
+	}, 2000);
+	
+	// Tentar inicializar slider (com tratamento de erro)
+	try {
+		if (typeof dz_rev_slider_1 === 'function') {
+			dz_rev_slider_1();
+			console.log('✓ Slider inicializado');
+		} else {
+			console.warn('Funcao dz_rev_slider_1 nao encontrada');
+		}
+	} catch(e) {
+		console.error('Erro ao inicializar slider:', e);
+	}
+	
+	// Cookies
+	try {
+		if (typeof setCookie === 'function') {
+			setCookie('header','header_v2',1);
+			setCookie('footer','footer_v2',1);
+		}
+	} catch(e) {
+		console.warn('Erro nos cookies:', e);
+	}
+	
+	console.log('✓ Inicializacao completa');
 });	/*ready*/
 </script>
-
-<script src="js/custom.js"></script><!-- FUNCOES CUSTOMIZADAS  -->
 </body>
 </html>
