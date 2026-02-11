@@ -1,0 +1,26 @@
+# Node modules (se houver)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*~
+
+# Não ignorar arquivos importantes
+!xhtml/
+!xhtml/**/*
+!render.yaml
+!README-DEPLOYMENT.md

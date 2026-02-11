@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Página Não Encontrada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .debug-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #d32f2f; }
+        h2 { color: #1976d2; margin-top: 0; }
+        pre {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .info { color: #666; }
+        a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="debug-box">
+        <h1>🔍 Debug - Página Não Encontrada</h1>
+        <p class="info">Este é um arquivo de debug para ajudar a identificar problemas no deployment.</p>
+    </div>
+
+    <div class="debug-box">
+        <h2>📍 Informações da URL</h2>
+        <pre id="url-info"></pre>
+    </div>
+
+    <div class="debug-box">
+        <h2>📂 Arquivos Disponíveis</h2>
+        <p>O servidor deveria estar servindo os seguintes arquivos:</p>
+        <ul>
+            <li><a href="/index.html">/index.html</a> (página principal)</li>
+            <li><a href="/index-2.html">/index-2.html</a> (backup)</li>
+            <li><a href="/css/style.css">/css/style.css</a></li>
+            <li><a href="/js/custom.js">/js/custom.js</a></li>
+        </ul>
+    </div>
+
+    <div class="debug-box">
+        <h2>🛠️ Possíveis Causas</h2>
+        <ol>
+            <li><strong>Publish Directory incorreto</strong> - Deveria ser: <code>xhtml</code> ou <code>./xhtml</code></li>
+            <li><strong>Root Directory incorreto</strong> - Deveria estar vazio ou apontar para raiz</li>
+            <li><strong>Arquivo index.html não encontrado</strong> - Verifique se existe em xhtml/index.html</li>
+            <li><strong>Cache do navegador</strong> - Tente Ctrl+Shift+R para forçar reload</li>
+        </ol>
+    </div>
+
+    <div class="debug-box">
+        <h2>⚙️ Configuração Recomendada do Render</h2>
+        <pre>Name: kipizza
+Branch: main (ou master)
+Root Directory: (deixar vazio)
+Build Command: (deixar vazio)
+Publish Directory: xhtml</pre>
+    </div>
+
+    <script>
+        // Log informações no console
+        console.log('=== DEBUG 404 PAGE ===');
+        console.log('URL atual:', window.location.href);
+        console.log('Pathname:', window.location.pathname);
+        console.log('Hostname:', window.location.hostname);
+        console.log('Protocol:', window.location.protocol);
+        
+        // Mostrar na página
+        document.getElementById('url-info').textContent = 
+            'URL Completa: ' + window.location.href + '\n' +
+            'Pathname: ' + window.location.pathname + '\n' +
+            'Hostname: ' + window.location.hostname + '\n' +
+            'User Agent: ' + navigator.userAgent;
+        
+        // Tentar detectar recursos
+        console.log('Testando recursos...');
+        
+        fetch('/index.html')
+            .then(r => console.log('index.html:', r.status, r.ok ? '✓' : '✗'))
+            .catch(e => console.error('index.html erro:', e));
+            
+        fetch('/css/style.css')
+            .then(r => console.log('style.css:', r.status, r.ok ? '✓' : '✗'))
+            .catch(e => console.error('style.css erro:', e));
+    </script>
+</body>
+</html>

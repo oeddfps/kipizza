@@ -1,0 +1,122 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 30/03/2020 08:04
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-delivery-truck:before { content: "\f100"; }
+.flaticon-pizza:before { content: "\f101"; }
+.flaticon-reservation:before { content: "\f102"; }
+.flaticon-hotel:before { content: "\f103"; }
+.flaticon-pizza-1:before { content: "\f104"; }
+.flaticon-celebrate:before { content: "\f105"; }
+.flaticon-french-fries:before { content: "\f106"; }
+.flaticon-coffee-cup:before { content: "\f107"; }
+.flaticon-crossed-knife-and-fork:before { content: "\f108"; }
+.flaticon-bell-covering-hot-dish:before { content: "\f109"; }
+.flaticon-wedding-cake:before { content: "\f10a"; }
+.flaticon-bag-of-sugar:before { content: "\f10b"; }
+.flaticon-cutlery:before { content: "\f10c"; }
+.flaticon-piece-of-cake-with-berries:before { content: "\f10d"; }
+.flaticon-hot-cup-of-tea:before { content: "\f10e"; }
+.flaticon-coffee-beans:before { content: "\f10f"; }
+.flaticon-tomato:before { content: "\f110"; }
+.flaticon-muffin:before { content: "\f111"; }
+.flaticon-smoking-barbecue:before { content: "\f112"; }
+.flaticon-pepper:before { content: "\f113"; }
+.flaticon-wine-glass:before { content: "\f114"; }
+.flaticon-jar-of-jam:before { content: "\f115"; }
+.flaticon-piece-of-cheese:before { content: "\f116"; }
+.flaticon-coffee:before { content: "\f117"; }
+.flaticon-butcher-knife:before { content: "\f118"; }
+.flaticon-pop-corn-cube:before { content: "\f119"; }
+.flaticon-cocktail-with-olive:before { content: "\f11a"; }
+.flaticon-dish:before { content: "\f11b"; }
+.flaticon-delivery:before { content: "\f11c"; }
+.flaticon-menu:before { content: "\f11d"; }
+.flaticon-wine:before { content: "\f11e"; }
+.flaticon-restaurant:before { content: "\f11f"; }
+.flaticon-steak:before { content: "\f120"; }
+.flaticon-roast-chicken:before { content: "\f121"; }
+.flaticon-ring:before { content: "\f122"; }
+.flaticon-review:before { content: "\f123"; }
+.flaticon-placeholder:before { content: "\f124"; }
+.flaticon-chef-hat:before { content: "\f125"; }
+.flaticon-waiter:before { content: "\f126"; }
+.flaticon-cook:before { content: "\f127"; }
+.flaticon-notes:before { content: "\f128"; }
+    
+    $font-Flaticon-delivery-truck: "\f100";
+    $font-Flaticon-pizza: "\f101";
+    $font-Flaticon-reservation: "\f102";
+    $font-Flaticon-hotel: "\f103";
+    $font-Flaticon-pizza-1: "\f104";
+    $font-Flaticon-celebrate: "\f105";
+    $font-Flaticon-french-fries: "\f106";
+    $font-Flaticon-coffee-cup: "\f107";
+    $font-Flaticon-crossed-knife-and-fork: "\f108";
+    $font-Flaticon-bell-covering-hot-dish: "\f109";
+    $font-Flaticon-wedding-cake: "\f10a";
+    $font-Flaticon-bag-of-sugar: "\f10b";
+    $font-Flaticon-cutlery: "\f10c";
+    $font-Flaticon-piece-of-cake-with-berries: "\f10d";
+    $font-Flaticon-hot-cup-of-tea: "\f10e";
+    $font-Flaticon-coffee-beans: "\f10f";
+    $font-Flaticon-tomato: "\f110";
+    $font-Flaticon-muffin: "\f111";
+    $font-Flaticon-smoking-barbecue: "\f112";
+    $font-Flaticon-pepper: "\f113";
+    $font-Flaticon-wine-glass: "\f114";
+    $font-Flaticon-jar-of-jam: "\f115";
+    $font-Flaticon-piece-of-cheese: "\f116";
+    $font-Flaticon-coffee: "\f117";
+    $font-Flaticon-butcher-knife: "\f118";
+    $font-Flaticon-pop-corn-cube: "\f119";
+    $font-Flaticon-cocktail-with-olive: "\f11a";
+    $font-Flaticon-dish: "\f11b";
+    $font-Flaticon-delivery: "\f11c";
+    $font-Flaticon-menu: "\f11d";
+    $font-Flaticon-wine: "\f11e";
+    $font-Flaticon-restaurant: "\f11f";
+    $font-Flaticon-steak: "\f120";
+    $font-Flaticon-roast-chicken: "\f121";
+    $font-Flaticon-ring: "\f122";
+    $font-Flaticon-review: "\f123";
+    $font-Flaticon-placeholder: "\f124";
+    $font-Flaticon-chef-hat: "\f125";
+    $font-Flaticon-waiter: "\f126";
+    $font-Flaticon-cook: "\f127";
+    $font-Flaticon-notes: "\f128";

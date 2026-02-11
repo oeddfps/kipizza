@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: kipizza
+    env: static
+    buildCommand: echo "Build iniciado..." && ls -la
+    staticPublishPath: ./xhtml
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
