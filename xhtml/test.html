@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Sistema - Ki Pizza</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .test-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .test-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 4px;
+        }
+        .status {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        .success { background: #28a745; }
+        .error { background: #dc3545; }
+        .warning { background: #ffc107; color: #333; }
+        .loading { background: #6c757d; }
+        .test-name {
+            flex: 1;
+            font-weight: 500;
+        }
+        .test-result {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        .btn-success {
+            background: #28a745;
+        }
+        .btn-success:hover {
+            background: #218838;
+        }
+        #console-log {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-top: 15px;
+        }
+        .summary {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .summary-card {
+            flex: 1;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .summary-card h3 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        .summary-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍕 Ki Pizza - Verificação de Sistema</h1>
+        <p class="subtitle">Diagnóstico completo do carregamento do site</p>
+        
+        <div class="summary">
+            <div class="summary-card" style="background: #e3f2fd;">
+                <h3 id="total-tests">0</h3>
+                <p>Testes Executados</p>
+            </div>
+            <div class="summary-card" style="background: #e8f5e9;">
+                <h3 id="passed-tests">0</h3>
+                <p>Sucessos</p>
+            </div>
+            <div class="summary-card" style="background: #ffebee;">
+                <h3 id="failed-tests">0</h3>
+                <p>Falhas</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🌐 Informações do Ambiente</h2>
+            <div id="env-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📦 Bibliotecas JavaScript</h2>
+            <div id="lib-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📁 Recursos do Site</h2>
+            <div id="resource-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎨 Arquivos CSS</h2>
+            <div id="css-tests"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📝 Log do Console</h2>
+            <div id="console-log"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="index.html" class="btn btn-success">✓ Ir para o Site Principal</a>
+            <a href="javascript:location.reload()" class="btn">🔄 Executar Novamente</a>
+        </div>
+    </div>
+
+    <script>
+        // Capturar logs do console
+        const consoleLogs = [];
+        const consoleDiv = document.getElementById('console-log');
+        
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        function addLog(type, ...args) {
+            const message = args.join(' ');
+            consoleLogs.push(`[${type}] ${message}`);
+            consoleDiv.textContent = consoleLogs.join('\n');
+        }
+        
+        console.log = function(...args) {
+            addLog('LOG', ...args);
+            originalLog.apply(console, args);
+        };
+        
+        console.error = function(...args) {
+            addLog('ERROR', ...args);
+            originalError.apply(console, args);
+        };
+        
+        console.warn = function(...args) {
+            addLog('WARN', ...args);
+            originalWarn.apply(console, args);
+        };
+
+        // Contadores
+        let totalTests = 0;
+        let passedTests = 0;
+        let failedTests = 0;
+
+        function updateSummary() {
+            document.getElementById('total-tests').textContent = totalTests;
+            document.getElementById('passed-tests').textContent = passedTests;
+            document.getElementById('failed-tests').textContent = failedTests;
+        }
+
+        function addTest(container, name, passed, details = '') {
+            totalTests++;
+            if (passed) passedTests++;
+            else failedTests++;
+            
+            const div = document.createElement('div');
+            div.className = 'test-item';
+            div.innerHTML = `
+                <div class="status ${passed ? 'success' : 'error'}">${passed ? '✓' : '✗'}</div>
+                <div class="test-name">${name}</div>
+                <div class="test-result">${details}</div>
+            `;
+            document.getElementById(container).appendChild(div);
+            updateSummary();
+        }
+
+        // Testes de ambiente
+        console.log('=== INICIANDO TESTES ===');
+        
+        addTest('env-tests', 'URL do Site', true, window.location.href);
+        addTest('env-tests', 'User Agent', true, navigator.userAgent.substring(0, 50) + '...');
+        addTest('env-tests', 'Viewport', true, `${window.innerWidth}x${window.innerHeight}`);
+        addTest('env-tests', 'Protocolo', window.location.protocol === 'https:', window.location.protocol);
+        
+        // Testes de bibliotecas
+        async function runTests() {
+            // jQuery
+            const jQueryLoaded = typeof jQuery !== 'undefined';
+            addTest('lib-tests', 'jQuery', jQueryLoaded, jQueryLoaded ? `v${jQuery.fn.jquery}` : 'Não carregado');
+            
+            // Bootstrap
+            const bootstrapLoaded = typeof bootstrap !== 'undefined';
+            addTest('lib-tests', 'Bootstrap', bootstrapLoaded, bootstrapLoaded ? 'Carregado' : 'Não carregado');
+            
+            // Recursos principais
+            const resources = [
+                { url: 'css/style.css', type: 'CSS' },
+                { url: 'css/plugins.css', type: 'CSS' },
+                { url: 'js/jquery.min.js', type: 'JS' },
+                { url: 'js/custom.js', type: 'JS' },
+                { url: 'images/pizza-logo.png', type: 'Imagem' }
+            ];
+
+            for (const resource of resources) {
+                try {
+                    const response = await fetch(resource.url, { method: 'HEAD' });
+                    const passed = response.ok;
+                    addTest('resource-tests', resource.url, passed, 
+                        passed ? `${response.status} OK` : `${response.status} ${response.statusText}`);
+                } catch (e) {
+                    addTest('resource-tests', resource.url, false, 'Falha ao carregar');
+                }
+            }
+
+            // CSS
+            const cssFiles = [
+                'css/style.css',
+                'css/plugins.css',
+                'css/templete.css',
+                'css/skin/skin-1.css'
+            ];
+
+            for (const css of cssFiles) {
+                try {
+                    const response = await fetch(css, { method: 'HEAD' });
+                    addTest('css-tests', css, response.ok, response.ok ? 'OK' : 'Erro');
+                } catch (e) {
+                    addTest('css-tests', css, false, 'Não encontrado');
+                }
+            }
+
+            console.log('=== TESTES CONCLUÍDOS ===');
+        }
+
+        // Executar testes ao carregar
+        window.addEventListener('load', runTests);
+    </script>
+</body>
+</html>
