@@ -1,10 +1,24 @@
 # 🍕 KI Pizza - Guia de Deployment no Render
 
-## ✅ Problema Resolvido
+## 🔧 Problemas Corrigidos
 
-O erro "Not Found" acontecia porque:
-1. **Arquivo principal**: chamava-se `index-2.html` em vez de `index.html`
-2. **Configuração**: Publish Directory precisava apontar para `xhtml`
+### v2.0 - Loading Infinito e Erros de jQuery
+**Sintomas**: Site fica em loading infinito, console mostra "jQuery is not defined"
+
+**Correções aplicadas**:
+1. ✅ **jQuery CDN Fallback** - Se o arquivo local falhar, carrega do CDN
+2. ✅ **Timeout no Loading** - Remove automaticamente após 2 segundos
+3. ✅ **Extensões Revolution Slider removidas** - Removidos scripts problemáticos
+4. ✅ **Tratamento de erros** - Try/catch em todas inicializações
+5. ✅ **Logs detalhados** - Console mostra exatamente o que carrega ou falha
+6. ✅ **Arquivo .htaccess** - MIME types corretos para evitar erro "text/html"
+
+### v1.0 - Not Found 404
+**Sintomas**: Site retornava 404 Not Found
+
+**Correções aplicadas**:
+1. ✅ **Arquivo principal**: Criado `index.html` (cópia do index-2.html)
+2. ✅ **Configuração**: Publish Directory apontando para `xhtml`
 
 ## 📋 Configuração do Render Static Site
 
@@ -58,22 +72,71 @@ git push -u origin main
 
 ## 🐛 Troubleshooting
 
+### 🧪 PÁGINA DE TESTE AUTOMÁTICA
+
+**Acesse primeiro**: `seu-site.onrender.com/test.html`
+
+Esta página vai:
+- ✅ Testar se jQuery carregou
+- ✅ Verificar todos os recursos (CSS, JS, imagens)
+- ✅ Mostrar logs detalhados do console
+- ✅ Indicar exatamente o que está falhando
+- ✅ Dar um diagnóstico visual completo
+
+### Se o site ficar em loading infinito:
+
+1. **Abra o console** (F12) - Procure por:
+   - ✅ `✓ jQuery carregado: v3.x.x` - Se aparecer, jQuery OK
+   - ✅ `✓ Document ready` - Se aparecer, scripts carregando
+   - ✅ `✓ Slider inicializado` - Slider funcionando
+   - ❌ Erros em vermelho - Indicam o problema
+
+2. **Limpe o cache**: Ctrl + Shift + R (Windows) ou Cmd + Shift + R (Mac)
+
+3. **Verifique MIME types**: No console, se ver "MIME type ('text/html') is not executable"
+   - O arquivo .htaccess deve resolver isso
+   - No Render, verifique se o .htaccess está sendo respeitado
+
+4. **Teste página por página**:
+   - `/test.html` - Diagnóstico completo
+   - `/404.html` - Página de erro
+   - `/index.html` - Site principal
+
 ### Se ainda aparecer "Not Found":
 
-1. **Verifique o console do navegador** (F12) - os logs vão mostrar o que está acontecendo
-2. **Limpe o cache**: Ctrl + Shift + R (Windows) ou Cmd + Shift + R (Mac)
-3. **Verifique os logs do Render**: No dashboard do Render > Seu projeto > Logs
-4. **Teste a página 404**: Acesse `seu-site.onrender.com/pagina-que-nao-existe` para ver o debug
+1. **Verifique os logs do Render**: Dashboard > Seu projeto > Logs
+2. **Confirme a configuração**: Publish Directory = `xhtml` (sem barras)
 
 ### Checklist de Verificação:
+### Arquivos Criados:
+- [x] `xhtml/index.html` - Site principal com correções
+- [x] `xhtml/index-2.html` - Backup (sincronizado)
+- [x] `xhtml/test.html` - **PÁGINA DE DIAGNÓSTICO**
+- [x] `xhtml/404.html` - Página de erro personalizada
+- [x] `xhtml/.htaccess` - Configuração de MIME types
+- [x] `render.yaml` - Config automática do Render
+- [x] `.gitignore` - Arquivos a ignorar no Git
+- [x] `README-DEPLOYMENT.md` - Este guia
 
-- [ ] Arquivo `xhtml/index.html` existe?
-- [ ] Publish Directory está como `xhtml`?
-- [ ] Root Directory está VAZIO?
-- [ ] Branch está correto (main ou master)?
-- [ ] Git push foi feito com sucesso?
-- [ ] Deploy finalizou sem erros no Render?
+### Correções Implementadas:
+- [x] jQuery com fallback para CDN
+- [x] Timeout de 2s no loading screen
+- [x] Extensões problemáticas do Revolution Slider removidas
+- [x] Try/catch em todas inicializações
+- [x] Logs detalhados no console
+- [x] Handler de erros para scripts
+- [x] MIME types configurados (.htaccess)
 
+### Commits Git:
+- [x] `7b67b88` - Initial commit com logs
+- [x] `22ca504` - Fix jQuery CDN fallback
+- [x] `79148c0` - Add página de teste
+
+### Pendente:
+- [ ] Push para GitHub/GitLab
+- [ ] Deploy no Render
+- [ ] Testar /test.html no navegador
+- [ ] Substituir placeholders restantes ({TELEFONE}, {EMAIL}, etc.)
 ## 📞 Informações do Site
 
 - **Region**: Teutônia, RS
