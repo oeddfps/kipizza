@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+	<meta name="description" content="Ki Pizza | Galeria de fotos de pizzas, eventos e equipe em Teutonia. Rodizio no local com pizzas feitas na hora."/>
+	<meta property="og:title" content="Ki Pizza | Galeria de Fotos"/>
+	<meta property="og:description" content="Veja a galeria completa de fotos da Ki Pizza com pizzas, eventos e nossa equipe em ação."/>
+	<meta property="og:image" content="http://restroking.dexignzone.com/xhtml/social-image.png" />
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- ICONE DE FAVICON -->
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/logo.PNG" />
+	
+	<!-- TITULO DA PAGINA -->
+	<title>Ki Pizza | Galeria de Fotos</title>
+	
+	<!-- MOBILE -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	
+	<!-- ESTILOS -->
+	<link rel="stylesheet" type="text/css" href="css/plugins.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/templete.css">
+	<link rel="stylesheet" type="text/css" href="plugins/flaticon/flaticon.css">
+	<link class="skin" rel="stylesheet" type="text/css" href="css/skin/skin-1.css">
+	<!-- CSS DO LIGHTGALLERY -->
+	<link rel="stylesheet" type="text/css" href="plugins/lightgallery/css/lightgallery.css">
+	<!-- ESTILO DE NAVEGACAO REVOLUTION -->
+	<link href="https://fonts.googleapis.com/css?family=Barlow:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+	
+	<style>
+		html, body { margin: 0; padding: 0; background: #E41E26; font-family: 'Barlow', sans-serif; }
+		@media (max-width: 768px) {
+			.sticky-header {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background: rgba(255, 255, 255, 0.05);
+				backdrop-filter: blur(5px);
+				-webkit-backdrop-filter: blur(5px);
+				transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+				z-index: 1000;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			.sticky-header.is-scrolled {
+				background: rgba(20, 20, 20, 0.45);
+				backdrop-filter: blur(14px);
+				-webkit-backdrop-filter: blur(14px);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+				box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+			}
+			.page-content {
+				padding-top: 70px;
+			}
+		}
+		@media (min-width: 992px) {
+			.desktop-header {
+				position: fixed;
+				top: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 1000;
+				background: rgba(228, 30, 38, 0.95);
+				backdrop-filter: blur(15px);
+				-webkit-backdrop-filter: blur(15px);
+				transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+				padding: 15px 30px;
+				border-radius: 25px;
+				width: min(1300px, calc(100% - 40px));
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+			.desktop-header.is-scrolled {
+				background: rgba(20, 20, 20, 0.95);
+				backdrop-filter: blur(25px);
+				-webkit-backdrop-filter: blur(25px);
+				box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+				border: 1px solid rgba(255, 255, 255, 0.15);
+				transform: translateX(-50%) translateY(-5px);
+			}
+			.desktop-header .logo img {
+				transition: transform 0.3s ease;
+			}
+			.desktop-header .logo:hover img {
+				transform: scale(1.05);
+			}
+			.desktop-header nav ul li a {
+				color: #FFFFFF;
+				font-weight: 500;
+				font-size: 16px;
+				padding: 10px 15px;
+				border-radius: 12px;
+				transition: all 0.3s ease;
+				position: relative;
+				overflow: hidden;
+			}
+			.desktop-header nav ul li a::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(255, 212, 59, 0.2), transparent);
+				transition: left 0.5s ease;
+			}
+			.desktop-header nav ul li a:hover::before {
+				left: 100%;
+			}
+			.desktop-header nav ul li a:hover {
+				color: #FFD43B;
+				transform: translateY(-2px);
+				box-shadow: 0 5px 15px rgba(255, 212, 59, 0.3);
+			}
+			.desktop-header .social-icons a {
+				color: #FFFFFF;
+				font-size: 18px;
+				padding: 8px;
+				border-radius: 50%;
+				transition: all 0.3s ease;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.desktop-header .social-icons a:hover {
+				background: rgba(255, 212, 59, 0.2);
+				transform: scale(1.1);
+				color: #FFD43B;
+			}
+			.desktop-header button {
+				background: rgba(255, 212, 59, 0.1);
+				border: 1px solid rgba(255, 212, 59, 0.3);
+				color: #FFD43B;
+				border-radius: 50%;
+				width: 35px;
+				height: 35px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				font-weight: bold;
+			}
+			.desktop-header button:hover {
+				background: #FFD43B;
+				color: #000;
+				transform: scale(1.1);
+			}
+			.page-content {
+				margin-top: 0;
+				padding-top: var(--header-h, 0);
+			}
+			.hide-desktop {
+				display: none !important;
+			}
+		}
+		.gallery-section {
+			padding: 60px 0;
+		}
+		.gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 20px;
+			margin-top: 40px;
+		}
+		@media (min-width: 768px) {
+			.gallery-grid {
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 25px;
+			}
+		}
+		@media (min-width: 1200px) {
+			.gallery-grid {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 30px;
+			}
+		}
+		.gallery-item {
+			position: relative;
+			overflow: hidden;
+			border-radius: 12px;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+			transition: all 0.3s ease;
+			cursor: pointer;
+		}
+		.gallery-item:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+		}
+		.gallery-item img {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+		.gallery-item:hover img {
+			transform: scale(1.08);
+		}
+		.gallery-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(228, 30, 38, 0.8);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+		.gallery-item:hover .gallery-overlay {
+			opacity: 1;
+		}
+		.gallery-overlay-icon {
+			color: #FFD43B;
+			font-size: 36px;
+			transition: transform 0.3s ease;
+		}
+		.gallery-item:hover .gallery-overlay-icon {
+			transform: scale(1.2);
+		}
+		.section-head {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.section-head .sub-title {
+			color: #E41E26;
+			font-weight: 600;
+			font-size: 14px;
+			margin-bottom: 10px;
+			letter-spacing: 1px;
+		}
+		.section-head .title {
+			color: #000;
+			font-size: 36px;
+			font-weight: 700;
+			margin-bottom: 15px;
+		}
+		.section-head p {
+			color: #666;
+			font-size: 16px;
+			line-height: 1.6;
+		}
+	</style>
+	
+</head>
+<body id="bg">
+<div class="page-wraper font-barlow">
+<div id="loading-area" class="pizza-loading"></div>
+	<!-- cabecalho -->
+    <header class="site-header mo-left header primary pizza-header">
+		<!-- cabecalho principal -->
+        <div class="sticky-header main-bar-wraper navbar-expand-lg">
+            <div class="main-bar clearfix d-lg-none">
+                <div class="container clearfix">
+					<!-- logo do site -->
+                    <div class="logo-header mostion">
+						<a href="index.html"><img src="images/logo.PNG" alt="" style="max-height: 40px; width: auto;"></a>
+					</div>
+					<!-- botao do menu -->
+					<button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alternar navegacao">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					<!-- nav extra -->
+                    <div class="extra-nav">
+                        <div class="extra-cell">
+							<ul class="extra-info">
+								<li>
+									<div class="header-phone-no">
+										<img src="images/icons/telephone.png" alt=""/>
+										<span>Rodízio no local em Teutônia</span>
+										<h2><a href="tel:+555189495061">+55 51 8949-5061</a></h2>
+									</div>
+								</li>
+								<li>
+									<div class="menu-btn">
+										<span></span>
+										<span></span>
+										<span></span>
+									</div>
+								</li>
+								<li>
+									<ul class="dlab-social-icon">
+										<li><a class="btn white outline circle" href="https://www.instagram.com/kipizzateutonia/"><i class="fa fa-instagram"></i></a></li>
+										<li><a class="btn white outline circle" href="https://wa.me/555189495061"><i class="fa fa-whatsapp"></i></a></li>
+									</ul>
+								</li>
+							</ul>
+							
+						</div>
+                    </div>
+					<!-- busca rapida -->
+                    <div class="dlab-quik-search ">
+                        <form action="#">
+							<input name="search" value="" type="text" class="form-control" placeholder="Buscar no site">
+                            <span id="quik-search-remove"><i class="ti-close"></i></span>
+                        </form>
+                    </div>
+            <!-- Fim Desktop Header -->
+					<!-- nav principal -->
+                    <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+						<div class="logo-header">
+							<a href="index.html"><img src="images/logo.PNG" alt=""></a>
+						</div>
+						<ul class="nav navbar-nav">	
+							<li><a href="index.html#aki-pizza">A KI PIZZA</a></li>
+							<li><a href="index.html#eventos">PIZZA PARA EVENTOS</a></li>
+							<li><a href="index.html#cardapio">CARDÁPIO</a></li>
+							<li><a href="cozinha.html">NA COZINHA</a></li>
+							<li><a href="index.html#fotos">EQUIPE SERVINDO</a></li>
+							<li class="active"><a href="galeria.html">GALERIA</a></li>
+							<li><a href="index.html#orcamento">ORÇAMENTO</a></li>
+						</ul>
+						<div class="dlab-social-icon">
+							<ul>
+								<li><a class="site-button sharp-sm fa fa-instagram" href="https://www.instagram.com/kipizzateutonia/"></a></li>
+								<li><a class="site-button sharp-sm fa fa-whatsapp" href="https://wa.me/555189495061"></a></li>
+							</ul>
+						</div>	
+						<div class="pizza-btn-close">&times;</div>	
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- fim do cabecalho principal -->
+    </header>
+	<!-- fim do cabecalho -->
+	<!-- Desktop Header -->
+	<div class="desktop-header d-none d-lg-block">
+		<div class="container" style="display: flex; align-items: center; justify-content: space-between; width: min(1200px, calc(100% - 24px)); margin: 0 auto; position: relative;">
+			<div class="logo" style="position: absolute; left: 30px; top: -50px; z-index: 10;"><img src="images/logo.PNG" alt="KI PIZZA" style="max-height: 100px; width: auto;"></div>
+			<nav style="flex: 1; display: flex; justify-content: center;">
+				<ul style="display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; align-items: center;">
+					<li><a href="index.html#aki-pizza" style="color: #FFFFFF; text-decoration: none; transition: color 0.3s;">A KI PIZZA</a></li>
+					<li><a href="index.html#eventos" style="color: #FFFFFF; text-decoration: none; transition: color 0.3s;">PIZZA PARA EVENTOS</a></li>
+					<li><a href="https://pedido.anota.ai/ki.pizza" style="color: #FFFFFF; text-decoration: none; transition: color 0.3s;">CARDÁPIO</a></li>
+					<li><a href="cozinha.html" style="color: #FFFFFF; text-decoration: none; transition: color 0.3s;">NA COZINHA</a></li>
+					<li><a href="index.html#fotos" style="color: #FFFFFF; text-decoration: none; transition: color 0.3s;">EQUIPE SERVINDO</a></li>
+					<li><a href="galeria.html" style="color: #FFD43B; text-decoration: none; transition: color 0.3s; background: rgba(255, 212, 59, 0.1); border-radius: 12px; padding: 8px 15px;">GALERIA</a></li>
+					<li><a href="index.html#orcamento" style="background: #FFD43B; color: #000000; border-radius: 30px; padding: 8px 18px; text-decoration: none; transition: background 0.3s;">ORÇAMENTO</a></li>
+				</ul>
+			</nav>
+			<div class="social-icons" style="display: flex; gap: 10px; align-items: center;">
+				<a href="https://www.instagram.com/kipizzateutonia/" style="color: #FFFFFF;"><i class="fa fa-instagram"></i></a>
+				<a href="https://wa.me/555189495061" style="color: #FFFFFF;"><i class="fa fa-whatsapp"></i></a>
+			</div>
+		</div>
+	</div>
+	<!-- Fim Desktop Header -->
+	<!-- Conteudo -->
+    <div class="page-content bg-white">
+		<!-- Galeria de Fotos -->
+		<div class="section-full content-inner bg-white gallery-section">
+			<div class="container">
+				<div class="section-head">
+					<h4 class="sub-title">Galeria</h4>
+					<h2 class="title">Conheça nosso trabalho</h2>
+					<p>Veja as melhores fotos de pizzas, eventos e nossa equipe em ação</p>
+				</div>
+
+				<div class="gallery-grid lightgallery">
+					<!-- Fotos da galeria principal -->
+					<a href="images/PIZZAAOVIVO.jpg" class="gallery-item">
+						<img src="images/PIZZAAOVIVO.jpg" alt="Pizza ao vivo" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+
+					<a href="images/fotomesasrua.jfif" class="gallery-item">
+						<img src="images/fotomesasrua.jfif" alt="Mesas na rua" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+
+					<a href="images/variaspizzas.jfif" class="gallery-item">
+						<img src="images/variaspizzas.jfif" alt="Várias pizzas" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+
+					<a href="images/primeira.jfif" class="gallery-item">
+						<img src="images/primeira.jfif" alt="Foto primeira" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+
+					<a href="images/segunda.jfif" class="gallery-item">
+						<img src="images/segunda.jfif" alt="Foto segunda" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+
+					<a href="images/PIZZASNAMESA.jpg" class="gallery-item">
+						<img src="images/PIZZASNAMESA.jpg" alt="Pizzas na mesa" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+
+					<a href="images/SALAOPIZZAS.jpg" class="gallery-item">
+						<img src="images/SALAOPIZZAS.jpg" alt="Salão de pizzas" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+
+					<a href="images/selfie.jpeg" class="gallery-item">
+						<img src="images/selfie.jpeg" alt="Selfie" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+
+					<a href="images/950x680.jpeg" class="gallery-item">
+						<img src="images/950x680.jpeg" alt="Evento" class="img-cover">
+						<div class="gallery-overlay">
+							<div class="gallery-overlay-icon">
+								<i class="fa fa-search"></i>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- Fim da Galeria de Fotos -->
+    </div>
+	<!-- Fim do conteudo -->
+	<!-- Rodape -->
+	<footer class="site-footer pizza-footer">
+        <div class="p-tb60 text-center bg-black-1">
+            <div class="container">
+                <div class="row">
+					<div class="col-md-12">
+						<div class="logo-footer">
+							<a href="index.html"><img src="images/logo.PNG" alt=""></a>
+						</div>
+						<p class="m-b0 m-t10 text-white">Pizza para eventos e congelada em Teutônia.</p>
+						<p class="m-b0 text-white">WhatsApp <a href="https://wa.me/555189495061">+55 51 8949-5061</a> | Telefone <a href="tel:+555189495061" style="color: red;">+55 51 8949-5061</a> | <a href="mailto:Kipizzateutonia@gmail.com">Kipizzateutonia@gmail.com</a></p>
+						<div class="widget-link"> 
+							<ul>
+								<li><a href="index.html#aki-pizza">Início</a></li> 
+								<li><a href="index.html#eventos">Como funciona</a></li> 
+								<li><a href="index.html#cardapio">Sabores</a></li> 
+								<li><a href="index.html#mapa">Contato</a></li> 
+								<li><a href="https://pedido.anota.ai/ki.pizza">Pedidos delivery</a></li>
+								<li><a href="galeria.html">Galeria</a></li>
+							</ul>
+						</div>
+						<p class="m-b0 m-t10 text-white ">Direitos autorais &copy; <span class="current-year"> 2026</span> KI PIZZA</p>
+						<ul class="dlab-social-icon mt-2">
+							<li><a class="btn white outline circle" href="https://www.instagram.com/kipizzateutonia/"><i class="fa fa-instagram"></i></a></li>
+							<li><a class="btn white outline circle" href="https://wa.me/555189495061"><i class="fa fa-whatsapp"></i></a></li>
+						</ul>
+					</div>
+				</div>
+            </div>
+        </div>
+    </footer>
+	<!-- Fim do rodape -->
+    <button class="scroltop style3 radius text-white" type="button"><i class="fa fa-arrow-up"></i></button>
+</div>
+<!-- ARQUIVOS JAVASCRIPT ========================================= -->
+<script src="js/jquery.min.js"></script><!-- JS JQUERY MIN -->
+<script src="plugins/bootstrap/js/popper.min.js"></script><!-- JS BOOTSTRAP MIN -->
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script><!-- JS BOOTSTRAP MIN -->
+<script src="plugins/lightgallery/js/lightgallery-all.min.js"></script><!-- LIGHTGALLERY -->
+<script src="js/custom.js"></script>
+<script>
+jQuery(document).ready(function() {
+	'use strict';
+	
+	setCookie('header','header_v2',1);
+	setCookie('footer','footer_v2',1);
+	
+	$('.lightgallery').lightGallery();
+	
+	// Glass effect on scroll for desktop header
+	if (window.innerWidth >= 992) {
+		const header = document.querySelector('.desktop-header');
+		const headerHeight = header.offsetHeight;
+		document.documentElement.style.setProperty('--header-h', headerHeight + 'px');
+		
+		window.addEventListener('scroll', function() {
+			if (window.scrollY > 30) {
+				header.classList.add('is-scrolled');
+			} else {
+				header.classList.remove('is-scrolled');
+			}
+		});
+		
+		// Mobile header scroll effect
+		const mobileHeader = document.querySelector('.sticky-header');
+		window.addEventListener('scroll', function() {
+			if (window.scrollY > 20) {
+				mobileHeader.classList.add('is-scrolled');
+			} else {
+				mobileHeader.classList.remove('is-scrolled');
+			}
+		});
+	}
+});	/*ready*/
+</script>
+
+<script src="js/custom.js"></script><!-- FUNCOES CUSTOMIZADAS  -->
+</body>
+</html>
